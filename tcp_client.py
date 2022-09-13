@@ -8,6 +8,16 @@ use python "input->" function, enter a line of a few letters, such as "abcd"
 import socket
 
 def main():
+
+    TCP_IP = '20.171.56.97'
+    TCP_Port= 8080
+    buffer=1024
+    message = "hello"
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((TCP_IP, TCP_Port))
+        s.send(message)
+        data = s.recv(buffer)
     
     # TODO: Create a socket and connect it to the server at the designated IP and port
     

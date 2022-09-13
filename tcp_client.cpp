@@ -24,6 +24,10 @@ int main(int argc, char const *argv[])
 
 	// TODO: Create a TCP socket(): CHECK
 	int sock = socket(AF_INET, SOCK_STREAM, 0);
+	struct sockaddr {
+		unsigned short sa_family;
+		char sa_data[14];
+	};
 
 	// Enable reusing address and port
 	if (setsockopt(client_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) { 
@@ -45,13 +49,13 @@ int main(int argc, char const *argv[])
 	getaddrinfo(server_ip.c_str(), server_port.c_str(), &hints, &server_addr);
 
 	// TODO: Connect() to the aws server (hint: you'll need to use server_addr)
-	client_fd=connect(sock, (struct sockadddr),sizeof(server_addr))
+	client_fd=connect(sock, sockaddr,sizeof(server_addr));
 
 	// TODO: Retreive user input
-	valread = read(sock, socket_read_buffer, 1024)
+	pread = read(sock, socket_read_buffer, 1024);
 
 	// TODO: Send() the user input to the aws server
-	valwrite = write(sock, hello, strlen(hello),0);
+	pwrite = write(sock, ftello, strlen(ftello),0);
 
 	// TODO: Recieve any messages from the aws server and print it here. Don't forget to make sure the string is null terminated!
 	int len = recv(client_fd, socket_read_buffer, sizeof(socket_read_buffer), 0);
