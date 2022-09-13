@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	char socket_read_buffer[1024];
 	
 	// TODO: Fill out the server ip and port
-	std::string server_ip = "10.26.155.133"; //got through ipconfig /all
+	std::string server_ip = "20.171.56.97"; //got through ipconfig /all
 	std::string server_port = "20"; //grabbed through the tcp server port of things 
 
 	int opt = 1;
