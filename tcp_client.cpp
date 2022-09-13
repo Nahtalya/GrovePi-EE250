@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
 	int client_fd = -1;
 
 	// TODO: Create a TCP socket(): CHECK
-	int sock = socket(AF_INIT, SOCK_STREAM, 0);
+	int sock = socket(AF_INET, SOCK_STREAM, 0);
 
 	// Enable reusing address and port
 	if (setsockopt(client_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) { 
@@ -45,7 +45,7 @@ int main(int argc, char const *argv[])
 	getaddrinfo(server_ip.c_str(), server_port.c_str(), &hints, &server_addr);
 
 	// TODO: Connect() to the aws server (hint: you'll need to use server_addr)
-	client_fd=connect(sock, (struct sockadddr)&server_addr,sizeof(server_addr))
+	client_fd=connect(sock, (struct sockadddr),sizeof(server_addr))
 
 	// TODO: Retreive user input
 	valread = read(sock, socket_read_buffer, 1024)
